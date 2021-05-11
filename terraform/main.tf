@@ -2,10 +2,6 @@ provider "azurerm" {
   features {}
 }
 
-# data "azurerm_resource_group" "main" {
-#   name = var.resource_group_name
-# }
-
 resource "azurerm_kubernetes_cluster" "main" {
   # Removed vars related to: 
   # - sku_tier
@@ -18,8 +14,6 @@ resource "azurerm_kubernetes_cluster" "main" {
   kubernetes_version  = var.kubernetes_version
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
-  # location            = data.azurerm_resource_group.main.location
-  # resource_group_name = data.azurerm_resource_group.main.name
   dns_prefix          = var.prefix
 
   default_node_pool {
